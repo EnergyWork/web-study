@@ -76,9 +76,6 @@ iframe {
     border-radius: 10px;
     background-color: rgb(224, 223, 223);
 }
-.review p {
-    text-indent: 20px;
-}
 li {
     list-style-type: none;
     margin-left: 20px;
