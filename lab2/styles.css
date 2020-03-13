@@ -91,3 +91,6 @@ ul {
     margin-bottom: 20px;
     padding-left: 0px;
 }
+summary {
+    cursor: pointer;
+}
