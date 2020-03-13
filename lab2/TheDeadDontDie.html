@@ -3,59 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Мёртвые не умирают</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-            }
-            .block-center {
-                margin: 0 auto;
-                max-width: 900px;
-            }
-            table {
-                font-size: 18px;
-                border-collapse: collapse;
-                vertical-align: top;
-                text-align: center;
-                color: white;
-                background-color: rgb(60, 60, 60);
-                border-radius: 7px;
-                width: 100%;
-            }
-            td {
-                height: 40px;
-                width: 500px;
-                padding: 5px;
-            }
-            td a {
-                text-decoration-line: none;
-                color: white;
-            }
-            td a:hover {
-                color: goldenrod;
-            }
-            .content {
-                margin-top: 20px;
-                display: flex;
-                flex-direction: row;
-            }
-            .side-content {
-                width: 210px;
-                margin-right: 50px;
-            }
-            .side-content img {
-                border-radius: 10px;
-            }
-            .box-field {
-                width: 150px;
-                display: inline-block;
-                text-align: left;
-            }
-            p {
-                margin-top: 5px;
-                margin-bottom: 0px;
-                border-bottom: dotted 1px black;
-            }
-        </style>
+        <link rel="stylesheet" href="styles.css">
     </head>
 
     <body>
@@ -72,37 +20,124 @@
         </header>
         <main class="block-center">
             <div class="content">
-                <div class="side-content"><img src="./images/TheDeadDontDie-poster.jpg" alt="Shit" width="210" height="300"></div>
+                <div class="side-content">
+                    <img src="./images/TheDeadDontDie-poster.jpg" alt="Shit" width="210" height="300">
+                    <div class="actors">
+                        <ul><b>В главных ролях:</b>
+                            <details>
+                                <summary>Адам Драйвер</summary>
+                                <li><img src="./images/adamdriver.jpg" alt="adamdriver"  width="100"></li>
+                            </details>              
+                            <details>
+                                <summary>Билл Мюррей</summary>
+                                <li><img src="./images/billmuray.jpg" alt="adamdriver"  width="100"></li>
+                            </details>
+                            <details>
+                                <summary>Тильда Суинтон</summary>
+                                <li><img src="./images/tildasy.jpg" alt="adamdriver"  width="100"></li>
+                            </details>
+                            <details>
+                                <summary>Стив Бушеми</summary>
+                                <li><img src="./images/stivebush.jpg" alt="adamdriver"  width="100"></li>
+                            </details>
+                            <details>
+                                <summary>Селена Гомес</summary>
+                                <li><img src="./images/selenagomez.jpg" alt="adamdriver"  width="100"></li>
+                            </details>
+                        </ul>
+                    </div>
+                </div>
                 <div class="main-content">
                     <div style="font-size: 24px;">Мёртвые не умирают</div>
                     <div class="description-content">
                         <p><b class="box-field">год</b>             <span>2019</span></p>
-                        <p><b class="box-field">страна</b>      	<span>США, Швеция</p>
-                        <p><b class="box-field">слоган</b>	        <span>«The Road To Survival Could Be A Dead End»</p>
-                        <p><b class="box-field">режиссер</b>	    <span>Джим Джармуш</p>
-                        <p><b class="box-field">сценарий</b>	    <span>Джим Джармуш</p>
-                        <p><b class="box-field">продюсер</b>	    <span>Джошуа Астрачан, Peita Carnevale, Arielle De Saint Phalle, ...</p>
-                        <p><b class="box-field">оператор</b>	    <span>Фредерик Элмс</p>
-                        <p><b class="box-field">композитор</b>	    <span>Sqürl</p>
-                        <p><b class="box-field">художник</b>	    <span>Алекс ДиДжерландо, Джулия Хейманс, Катрин Джордж, ...</p>
-                        <p><b class="box-field">монтаж</b>	        <span>Аффонсо Гонсалвес</p>
-                        <p><b class="box-field">жанр</b>	        <span>ужасы, фэнтези, комедия, ...</p>
+                        <p><b class="box-field">страна</b>      	<span>США, Швеция</span></p>
+                        <p><b class="box-field">слоган</b>	        <span>&#171The Road To Survival Could Be A Dead End&#187</span></p>
+                        <p><b class="box-field">режиссер</b>	    <span>Джим Джармуш</span></p>
+                        <p><b class="box-field">сценарий</b>	    <span>Джим Джармуш</span></p>
+                        <p><b class="box-field">продюсер</b>	    <span>Джошуа Астрачан, Peita Carnevale, Arielle De Saint Phalle, ...</span></p>
+                        <p><b class="box-field">оператор</b>	    <span>Фредерик Элмс</span></p>
+                        <p><b class="box-field">композитор</b>	    <span>Sqürl</span></p>
+                        <p><b class="box-field">художник</b>	    <span>Алекс ДиДжерландо, Джулия Хейманс, Катрин Джордж, ...</span></p>
+                        <p><b class="box-field">монтаж</b>	        <span>Аффонсо Гонсалвес</span></p>
+                        <p><b class="box-field">жанр</b>	        <span>ужасы, фэнтези, комедия, ...</span></p>
                         <p><b class="box-field">сборы в США</b>	    <span>$6 563 605</span></p>
                         <p><b class="box-field">сборы в мире</b>	<span>+ $7 939 225 = $14 502 830</span></p>
                         <p><b class="box-field">сборы в России</b>	<span>$733 752</span></p>
                         <p><b class="box-field">зрители	Россия</b>  <span>179.6 тыс.</span></p>
                         <p><b class="box-field">премьера (мир)</b>	<span>14 мая 2019, ...</span></p>
-                        <p><b class="box-field">премьера (РФ)</b>	<span>11 июля 2019, «UPI»</span></p>
-                        <p><b class="box-field">цифровой релиз</b>	<span>5 сентября 2019, «Universal»</span></p>
-                        <p><b class="box-field">возраст</b>	<span>18+</p>
-                        <p><b class="box-field">рейтинг MPAA</b>	<span>рейтинг R</p>
-                        <p><b class="box-field">время</b>	        <span>104 мин. / 01:44</p>
+                        <p><b class="box-field">премьера (РФ)</b>	<span>11 июля 2019, &#171UPI&#187</span></p>
+                        <p><b class="box-field">цифровой релиз</b>	<span>5 сентября 2019, &#171Universal&#187</span></p>
+                        <p><b class="box-field">возраст</b>	        <span>18+</span></p>
+                        <p><b class="box-field">рейтинг MPAA</b>	<span>рейтинг R</span></p>
+                        <p><b class="box-field">время</b>	        <span>104 мин. / 01:44</span></p>
+                        <div class="marks">
+                            <div class="KinoPoisk">
+                                <span class="name-res">КиноПоиск</span><br>             
+                                <span class="digit">6.1</span>
+                            </div>
+                            <div class="IMDb">
+                                <span class="name-res">IMDb</span><br>
+                                <span class="digit">5.5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="film-trailer">
+                        <p>Трейлер</p>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Jp-DKZjeeNA" 
+                        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
         </main>
         <footer class="block-center">
-
+            <p style="margin-left: 260px; font-size: x-large; font-weight: bold;"><span>Отзывы</span></p>
+                <article style="margin-left: 260px;">
+                    <div class="review">
+                        <p><b>Джулия МакГрегор</b></p>
+                        <p><strong>Мертвые не умирают… для этого сначала надо научиться жить.</strong></p>
+                        <p>Все любят Джима Джармуша. Кто-то не может забыть «Более странно, чем в раю», 
+                            кто-то без ума от новелл из «Кофе и сигарет» и «Ночи на Земле», одним по душе 
+                            изысканная мистика «Мертвеца», другим — вампирская эстетика «Выживут только любовники». 
+                            Есть даже поклонники «Патерсона»! Так что неудивительно, что выхода «Мертвые не умирают» ждали все: 
+                            комедия про зомби-апокалипсис в маленьком американском городке с таким мощным подбором актеров могла 
+                            получиться какой угодно, но только не проходной. Увы, именно проходной она и оказалась.</p>
+                        <p>Сначала о плюсах — прекрасных актеров просто море. Идеальный экранный дуэт Билла Мюррея и Адама Драйвера, 
+                            которые играют по большому счету самих себя. Тильда Суинтон — невыразимо прекрасная даже в роли крайне странной 
+                            владелицы похоронного бюро. Стив Бушеми в узнаваемой красной кепке. Взирающий на все происходящее со стороны мудрый бомж Том Уэйтс.</p>
+                            И так далее, и тому подобное, даже Селена Гомес оказалась вполне к месту. Опять же, множество камео.
+                            К тому же это, что называется, типичный Джармуш: немного не от мира сего, но сохраняющий фирменное обаяние, 
+                            меланхоличный и ироничный одновременно. И время от времени еще готовый удивить отличной шуткой.</p>
+                        <p>А теперь о минусах. И первым из них будет как раз это самое «время от времени»: «Мертвые не умирают» — к сожалению, 
+                            совершенно не смешной фильм. Большинство шуток вызывают разве что вежливую улыбку. Сама метафора не то чтобы поражает 
+                            своей глубиной и изящностью, а необязательный финал и вовсе портит все впечатление, даже если пытаться считать его шуткой (не получается).</p>
+                        <p>Во-вторых, Джармуш попал мимо всех жанров, в которые целился. Для комедии он, повторюсь, слишком не смешной, 
+                            для сатиры — тоже слишком не смешной, для фильма про зомби — слишком явно не увлечен темой. Возможно, это тоже было целью автора, 
+                            но смотрится как-то как минимум слабо — сравните с погружением в мир вампиров в «Выживут только любовники». В итоге фильм получился 
+                            просто… никаким. Сократи его раза в два, а то и три — и высказывание Джармуша ничего не потеряет.</p>
+                    </div>
+                </article>
+                <article style="margin-left: 260px;">
+                    <div class="review">
+                        <p><b>Джулия МакГрегор</b></p>
+                        <p><strong>Мертвые не умирают…</strong></p>
+                        <p>Джим Джармуш доказал, что каким бы его жанром не отягощать, продукт будет все-равно продаваться под его брендом. 
+                            Так и вышло с «Мертвые не умирают», работа, которая не упустила ключевых характеристик жанра зомби-хоррора, 
+                            но этот фильм больше попадет в линейку «Джармуш-жанр», что возможно сыграет как комплимент поклонникам режиссера.</p>
+                        <p>В принципе классический пролог — некий сдвиг экосистемы заставляет подниматься закопанных ребят, те особо не эволюционировали 
+                            во всей истории жанра, и ясное дело ощущают голод к свежей человеческой плоти. Противостоять мертвецам отваживается шериф со 
+                            своими двумя заместителями, быстро смекая что к чему, ну, еще по ходу истории, появляются персонажи второго плана — продавец-ботан 
+                            на заправке, компания студентов, надоедливый фермер и группа молодых людей в исправительной колонии.</p>
+                        <p>Не сказать, что все имеющиеся персонажи отыграли какую-то важную роль в общей истории, более того — даже дуэт главных героев выглядит 
+                            каким-то статическим объектом на фоне чего-то более крупного. К сожалению, какого-нибудь важного сообщения режиссер так и не передал, 
+                            или, его таинственный смысл был скрыт между строк, но если рассматривать «Мертвые не умирают» через линзу зомби-муви, то у проекта 
+                            кажется отсутствует главный посыл.</p>
+                        <p>В сюжете удалось блеснуть несколькими яркими шутками, но это чуть не единственное, что добавляет ей минимальной и неоспоримой ценности. 
+                            В эпилоге истории Джармуш и вовсе проказничает — общаясь со зрителем открытым диалогом через реплики своих персонажей. 
+                            Как итог — фанаты режиссера смело внесут ему данную выходку в копилку, для остальных это не более чем жанровый эксперимент.</p>
+                        <p>5 из 10</p>
+                    </div>
+                </article>
         </footer>
     </body>
 </html>

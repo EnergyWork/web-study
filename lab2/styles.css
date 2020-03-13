@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+}
+.block-center {
+    margin: 0 auto;
+    max-width: 1000px;
+}
+table {
+    font-size: 18px;
+    border-collapse: collapse;
+    vertical-align: top;
+    text-align: center;
+    color: white;
+    background-color: rgb(60, 60, 60);
+    border-radius: 7px;
+    width: 100%;
+}
+td {
+    height: 40px;
+    width: 500px;
+    padding: 5px;
+}
+td a {
+    text-decoration-line: none;
+    color: white;
+}
+td a:hover {
+    color: goldenrod;
+}
+.content {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
+.side-content {
+    width: 210px;
+    margin-right: 50px;
+}
+.side-content img {
+    border-radius: 10px;
+}
+.box-field {
+    width: 150px;
+    display: inline-block;
+    text-align: left;
+}
+.description-content p {
+    margin-top: 5px;
+    margin-bottom: 0px;
+    border-bottom: dotted 1px black;
+}
+.film-trailer {
+    margin: 20px;
+    font-size: large;
+}
+iframe {
+    text-align: center;
+    margin-top: 10px;
+}
+.marks {
+    margin-top: 30px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+    font-size: larger;
+}
+.KinoPoisk {
+    margin-right: 30px;
+}
+.IMDb {
+    
+}
+.name-res {
+
+}
+.digit {
+    font-size: xx-large;
+}
+.review {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: rgb(224, 223, 223);
+}
+li {
+    list-style-type: none;
+    margin-left: 20px;
+}
+ul {
+    margin-left: 0px;
+    margin-bottom: 20px;
+    padding-left: 0px;
+}
