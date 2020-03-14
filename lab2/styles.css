@@ -50,8 +50,11 @@ td a:hover {
     border-bottom: dotted 1px black;
 }
 .film-trailer {
-    margin: 20px;
-    font-size: large;
+    /*margin: 20px;*/
+    font-size: x-large;
+}
+.film-trailer p {
+    font-weight: bold;
 }
 iframe {
     text-align: center;
