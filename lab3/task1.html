@@ -4,6 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <title>TASK 1</title>
+    <style>
+        input[type = "checkbox"] {
+            box-shadow: 1px 1px 3px 0px darkgreen;
+        }
+        input[type = "checkbox"]:checked {
+            box-shadow: 1px 1px 3px 0px crimson;
+        }
+        .cb {
+            background-color: rgb(221, 221, 221);
+            width: 50px;
+            border-radius: 7px;
+        }
+        [id |= "message"] {
+            background-color: rgb(221, 221, 221);
+            width: 150px;
+            border-radius: 7px;
+        }
+        [id ^= "message-"] {
+            border: 2px solid darkkhaki;
+            margin: 2px;
+        }
+        [href $= "zip"]:hover {
+            color: darkred;
+        }
+        [data-action ~= "delete" ] {
+            color: forestgreen;
+        }
+        [data-action *= "delete"] {
+            background-color: khaki;
+        }
+        [id ^= "message-"]:nth-child(2n) {
+            border-style: dotted;
+            border-width: 3px;
+        }
+        h3 + * {
+            font-weight: bold;
+        }
+        h3 ~ a {
+            font-style: italic;
+        }
+        [id = "messages"] a:hover {
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
@@ -18,12 +62,12 @@
     <input type="text" id="message">
 
     <h3 id="widget-title">Сообщение</h3>
-    <ul id="massages">
-        <li id="massage-1">Сообщение 1</li>
-        <li id="massage-2">Сообщение 2</li>
-        <li id="massage-3" data-action="delete">Сообщение 3</li>
-        <li id="massage-4" data-action="edit do-not-delete">Сообщение 4</li>
-        <li id="massage-5" data-action="edit delete">Сообщение 5</li>
+    <ul id="messages">
+        <li id="message-1">Сообщение 1</li>
+        <li id="message-2">Сообщение 2</li>
+        <li id="message-3" data-action="delete">Сообщение 3</li>
+        <li id="message-4" data-action="edit do-not-delete">Сообщение 4</li>
+        <li id="message-5" data-action="edit delete">Сообщение 5</li>
         <li><a href="#">...</a></li>
     </ul>
     <a href="http://site.com/list.zip">Ссылка на архив</a>
