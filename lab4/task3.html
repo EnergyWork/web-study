@@ -9,9 +9,40 @@
 <body>
     <script>
         var x = prompt("Введите первое число: ", "")
+        while (isNaN(x)) {
+            alert("Ты чо ввёл(а)?")
+            x = prompt("Введите первое число: ", "")
+        }
         var y = prompt("Введите второе число: ", "")
-        var x = prompt("Введите первое число: ", "")
-
+        while (isNaN(y)) {
+            alert("Ты чо ввёл(а)?")
+            y = prompt("Введите первое число: ", "")
+        }
+        var sign = prompt("Введите знак операции(+, -, *, /): ", "")
+        while (!sign.includes('+') && !sign.includes('-') && !sign.includes('*') && !sign.includes('/')) {
+            alert("Ты чо ввёл(а)?")
+            sign = prompt("Введите знак операции: ", "")
+        }
+        switch (sign) {
+            case '+':
+                result = parseInt(x, 10) + parseInt(y, 10)
+                break
+            case '-': 
+                result = parseInt(x, 10) - parseInt(y, 10)
+                break
+            case '*': 
+                result = parseInt(x, 10) * parseInt(y, 10)
+                break
+            case '/':
+                if (parseInt(y, 10) === 0)
+                    result = "Деление на ноль!"
+                else 
+                    result = parseInt(x, 10) / parseInt(y, 10)
+                break
+            default:
+                break
+        }
+        alert("Результат: " + result)
     </script>
 </body>
 
