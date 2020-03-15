@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>doc</title>
+    <style>
+        td {
+            width: 50px;    
+            height: 50px;
+        }
+        .r1 {
+            background-color: cyan;
+        }
+        .r2 {
+            background-color: blue;
+        }
+        .r3 {
+            background-color: darkorange;
+        }
+        .r4 {
+            background-color: greenyellow;
+        }
+        .r5 {
+            background-color: hotpink;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        var n = 10
+        var s
+        document.write("<table>")
+        for (i = 1; i <= n; i++)
+        {
+            document.write("<tr>")
+            for (j = 1; j <= n; j++)
+            {
+                if (i + j < n)
+                    s = "class='r1'"
+                else 
+                    s = "class='r2'"
+                document.write("<td " + s + "> </td>")
+            }
+            document.write("</tr>")
+        }
+        document.write("</table>")
+        document.write("<br><br>")
+        document.write("<table>")
+        for (i = 1; i <= n; i++)
+        {
+            document.write("<tr>")
+            for (j = 1; j <= n; j++)
+            {
+                if (i + 1 > j)
+                    s = "class='r2'"
+                else 
+                    s = "class='r3'"
+                document.write("<td " + s + "> </td>")
+            }
+            document.write("</tr>")
+        }
+        document.write("</table>")
+        document.write("<br><br>")
+        document.write("<table>")
+        for (i = 1; i <= n; i++)
+        {
+            document.write("<tr>")
+            for (j = 1; j <= n; j++)
+            {
+                if (i % 3 === 0)
+                    s = "class='r4'"
+                else 
+                    s = "class='r5'"
+                document.write("<td " + s + "> </td>")
+            }
+            document.write("</tr>")
+        }
+        document.write("</table>")
+    </script>
+</body>
+
+</html>
