@@ -20,8 +20,22 @@
                 name: "Маша",
                 surname: "Медведева",
                 age: 18
-            }    
-        ]
+            }, {
+                name: "Артём",
+                surname: "Гарик",
+                age: 22
+            }
+        ];
+        function compare(field) {
+            return (a, b) => a[field] > b[field] ? 1 : -1;
+        };
+        users.sort(compare('age'));
+        for (let i = 0; i < users.length; i++) {
+            document.write(users[i].name); document.write("&nbsp;");
+            document.write(users[i].surname);document.write("&nbsp;");
+            document.write(users[i].age); document.write("&nbsp;");
+            document.write("<br>");
+        }
     </script>
 </body>
 
