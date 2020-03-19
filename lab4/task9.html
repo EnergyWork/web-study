@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>TASK 9</title>
+</head>
+
+<body>
+    <script>
+        let arr = ["воз", "киборг", "корсет", "ЗОВ", "гробик", "костер", "сектор", "оВз", "бикорг"];
+
+        function findAnagram(ourWord, index, words) {
+            for (let i = index + 1; i < words.length; i++) {
+                var counter = 0;
+                for (let j = 0; j < words[i].length; j++) {
+                    if (ourWord.includes(words[i][j].toLowerCase()))
+                        counter++; 
+                }
+                console.log(' ' + ourWord + ' ' + words[i] + ' ' + counter);                
+                if (counter == ourWord.length) {
+                    console.log("  befor: " + arr);
+                    words.splice(i, 1);
+                    i--;
+                    console.log("  after: " + arr);
+                }   
+            }
+        }
+        function aclean(arr) {
+            
+            arr.forEach(word => {
+                console.log("Check: " + word);
+                findAnagram(word.toLowerCase(), arr.indexOf(word), arr);
+                console.log("\n");
+            });
+            return arr;
+        }
+
+        document.write(arr + "<br>");
+        document.write(aclean(arr) + "<br>");
+    </script>
+</body>
+
+</html>

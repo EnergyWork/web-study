@@ -10,11 +10,15 @@
     <script>
         arr = ["test", 2, 1.5, false];
 
+        function find(arr, value) {
+            return arr.includes(value) ? arr.indexOf(value) : -1;
+        }
+
         document.write(find(arr, "test") + "<br>");
         document.write(find(arr, 2) + "<br>");
         document.write(find(arr, 1.5) + "<br>");
         document.write(find(arr, 0) + "<br>");
-        
+
     </script>
 </body>
 
