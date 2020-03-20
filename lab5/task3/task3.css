@@ -13,6 +13,7 @@
 table {
     display: block;
 }
+
 [type = "button"] {
     width: 100px;
     height: 100px;
@@ -28,6 +29,10 @@ table {
 [type = "button"]:hover {
     background-color: rgba(212, 212, 212, 0.5);
 }
+[type = "button"]:active {
+    background-color: rgba(212, 212, 212, 0.8);
+}
+
 [type = "text"] {
     height: 60px;
     width: 492px;
