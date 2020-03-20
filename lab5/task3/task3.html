@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>TASK 3</title>
+    <link rel="stylesheet" href="./task3.css">
+    <script src="./task3.js"></script>
+</head>
+
+<body>
+    <script>
+        function factorial(n) {
+            return (n != 1) ? n * factorial(n - 1) : 1;
+        }
+        alert(eval(factorial(1+(1*2))));
+    </script>
+    <div class="calculator">
+            <table>
+                <tr>
+                    <td colspan="5"><input type="text" id="outputfield" readonly value="0"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="C" onclick="reset()"></td>
+                    <td><input type="button" value="&larr;" onclick="eraselast()"></td>
+                    <td><input type="button" value="!" onclick="addValue('!')"></td>
+                    <td><input type="button" value="(" onclick="addValue('(')"></td>
+                    <td><input type="button" value=")" onclick="addValue(')')"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="7" onclick="addValue('7')"></td>
+                    <td><input type="button" value="8" onclick="addValue('8')"></td>
+                    <td><input type="button" value="9" onclick="addValue('9')"></td>
+                    <td><input type="button" value="-" onclick="addValue('-')"></td>
+                    <td><input type="button" value="^" onclick="addValue('^')"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="4" onclick="addValue('4')"></td>
+                    <td><input type="button" value="5" onclick="addValue('5')"></td>
+                    <td><input type="button" value="6" onclick="addValue('6')"></td>
+                    <td><input type="button" value="+" onclick="addValue('+')"></td>
+                    <td><input type="button" value="&radic;" onclick="addValue('√')"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="1" onclick="addValue('1')"></td>
+                    <td><input type="button" value="2" onclick="addValue('2')"></td>
+                    <td><input type="button" value="3" onclick="addValue('3')"></td>
+                    <td><input type="button" value="*"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="0" onclick="addValue('0')"></td>
+                    <td><input type="button" value="." onclick="addValue('.')"></td>
+                    <td><input type="button" value="=" onclick="addValue('=')"></td>
+                    <td><input type="button" value="/" onclick="addValue('/')"></td>
+                </tr>
+            </table>
+    </div>
+</body>
+
+</html>
