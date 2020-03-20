@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./task2.css">
+    <script src="./task2.js"></script>
+    <title>TASK 2</title>
+</head>
+
+<body>
+    <form name="productsForm" method="post" action="#">
+        <fieldset>
+            <div class="field">
+                <label for="product">Продукт</label>
+                <input type="text" name="product" placeholder="Яблоко" autofocus>
+            </div>
+            <div class="field">
+                <label for="price">Цена</label>
+                <input type="number" name="price" placeholder="25">
+            </div>
+            <div class="field">
+                <input type="button" value="Добавить" onclick="addListElem();">
+            </div>
+        </fieldset>
+    </form>
+    <div>
+        <ul id="productsList">Список продуктов:</ul>
+    </div>
+</body>
+
+</html>
