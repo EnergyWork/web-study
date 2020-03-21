@@ -20,17 +20,17 @@ table {
     font-size: 32px;
     border: none;
     border-radius: 10px;
-    background-color: rgba(212, 212, 212, 0.2);
-    transition: 0.1s background-color;
+    background-color: rgba(209, 157, 205, 0.2); /*rgb 212 212 212*/
+    transition: 0.06s background-color;
 }
 [type = "button"]:focus {
     outline: none;
 }
 [type = "button"]:hover {
-    background-color: rgba(212, 212, 212, 0.5);
+    background-color: rgba(209, 157, 205, 0.4);
 }
 [type = "button"]:active {
-    background-color: rgba(212, 212, 212, 0.8);
+    background-color: rgba(209, 157, 205, 0.6);
 }
 
 [type = "text"] {
@@ -39,7 +39,7 @@ table {
     border: none;
     border-radius: 10px;
     font-size: 32px;
-    background-color: rgba(212, 212, 212, 0.2);
+    background-color: rgba(209, 157, 205, 0.2);
     text-align: right;
     padding-right: 20px;
 }
