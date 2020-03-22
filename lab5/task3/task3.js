@@ -1,7 +1,4 @@
 let outputField = document.querySelector("#outputfield");
-let operators = ["+","-","*","/",".","!","**","^","√"];
-let toEval = "0";
-let floatNum = false;
 
 function factorial(n) {
     return (n != 1) ? n * factorial(n - 1) : 1;
@@ -17,6 +14,13 @@ function checkingForAPoint() {
     return true;
 }
 
+function toBin() {
+    outputField.value = parseInt(outputField.value, 10).toString(2);
+}
+function toDec() {
+    outputField.value = parseInt(outputField.value, 2);
+}
+
 function reset() {
     outputField.value = "0";
 }
@@ -27,23 +31,19 @@ function eraselast() {
     else if (outputField.value.slice(-1) == "(")
         backets--;
     outputField.value = outputField.value.slice(0, outputField.value.length - 1);
-    toEval = outputField.value;
     if (outputField.value.length == 0) {
         outputField.value = "0";
     }
 }
 
 function addValue(val) {
-    if (parseInt(val, 10)) { // digit
+    if (parseInt(val, 10) || val == 0) { // digit
         if(outputField.value.slice(-1) == "0" && outputField.value.length == 1) {
             outputField.value = val;
-            toEval = outputField.value;
         } else if (!")!".includes(outputField.value.slice(-1))) {
             outputField.value += val;
-            toEval = outputField.value;
         }
-    }
-    else { //! ( ) - ^ + sqrt . /
+    } else { //! ( ) - ^ + sqrt . /
         switch(val) {
             case '/': 
             case '*': 
@@ -52,10 +52,8 @@ function addValue(val) {
                 if (!"(√.^".includes(outputField.value.slice(-1))) {
                     if ("+-*/".includes(outputField.value.slice(-1))) {
                         outputField.value = outputField.value.slice(0, -1) + val;
-                        toEval = outputField.value;
                     } else {
                         outputField.value += val;
-                        toEval = outputField.value;
                     }
                 }
                 break;
@@ -69,19 +67,16 @@ function addValue(val) {
             case '(': 
                 if (!"0123456789.!()".includes(outputField.value.slice(-1))) {
                     outputField.value += val;
-                    toEval += val;
                 }
                 break;
             case ')': 
                 if (!"!.+-*/√^(".includes(outputField.value.slice(-1))) {
                     outputField.value += val;
-                    toEval += val;
                 }
                 break; 
             case '!': 
-                if (!".+-*/√(^".includes(outputField.value.slice(-1))) { // 5+3! => 5+factorial(3) r(4+5-(3-1)!)!
-                    outputField.value += val;
-                    
+                if (!".+-*/√(^".includes(outputField.value.slice(-1))) {
+                    outputField.value += val;  
                 }
                 break;
             case '^': 
@@ -92,7 +87,6 @@ function addValue(val) {
             case '.': 
                 if ("0123456789.".includes(outputField.value.slice(-1)) && checkingForAPoint()) {
                     outputField.value += val;
-                    toEval += val;
                 }
                 break;
         }
@@ -105,21 +99,24 @@ function createStrToEval(str) {
         switch(str[i]) {
             case "!":
                 str.splice(i, 1, ")");
-                if(isFinite(str[i - 1]))
-                    for (let j = i - 1; j != -2; j--)
+                if (isFinite(str[i - 1])) {
+                    for (let j = i - 1; j != -2; j--) {
                         if(isNaN(parseInt(str[j]))) {
-                            str.splice(j+1, 0, "factorial(");
+                            str.splice(j + 1, 0, "factorial(");
                             break;
                         }
-                if (str[i-1] == ")") {
+                    }
+                }
+                if (str[i - 1] == ")") {
                     let numOfBrocket = 0;
-                    for (let j=i-1; j!=-2; j--){
-                        if (str[j] == ")")
+                    for (let j = i - 1; j != -2; j--) {
+                        if (str[j] == ")") {
                             numOfBrocket++;
-                        else if (str[j] == "(")
+                        } else if (str[j] == "(") {
                             numOfBrocket--;
-                        if(numOfBrocket == 0){          
-                            str.splice(j+1,0,"factorial(");
+                        }
+                        if (numOfBrocket == 0) {
+                            str.splice(j + 1, 0, "factorial(");
                             break;
                         }
                     }
@@ -129,21 +126,16 @@ function createStrToEval(str) {
                 str.splice(i, 1, "**");
                 break;
             case "√":
-                str.splice(i,1,"Math.sqrt(");           
+                str.splice(i, 1, "Math.sqrt(");
                 if(isFinite(str[i + 1]) || str[i + 1] == "Math.sqrt(")
-                    for (let j=i+1; j<str.length+1; j++) {
+                    for (let j = i + 1; j < str.length + 1; j++) {
                         if(!isFinite(str[j]) && str[j] != "Math.sqrt(") {
                             str.splice(j, 0, ")");
                             break;
                         }
-                    }
-                else if(str[i + 1] == "(")
-                    str.splice(i + 1, 1);
-                    
-                break;
-            case "/":
-                if(str[i + 1] == 0)
-                    return "Деление на ноль";
+                    } else if(str[i + 1] == "(") {
+                        str.splice(i + 1, 1);         
+                    }  
                 break;
         }
     }
