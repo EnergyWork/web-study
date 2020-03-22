@@ -17,6 +17,7 @@ function checkingForAPoint() {
 function toBin() {
     outputField.value = parseInt(outputField.value, 10).toString(2);
 }
+
 function toDec() {
     outputField.value = parseInt(outputField.value, 2);
 }
