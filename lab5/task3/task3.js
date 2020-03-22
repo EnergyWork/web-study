@@ -1,38 +1,46 @@
 let outputField = document.querySelector("#outputfield");
-let backets = 0;
 let operators = ["+","-","*","/",".","!","**","^","√"];
-let evalResult = "0";
+let toEval = "0";
 let floatNum = false;
 
 function factorial(n) {
     return (n != 1) ? n * factorial(n - 1) : 1;
 }
 
+function checkingForAPoint() {
+    i = outputField.value.length;
+    while (!"+-*/√^".includes(outputField.value[i - 1]) && i != 0) {
+        if (outputField.value[i - 1] == '.')
+            return false;
+        i--;
+    }
+    return true;
+}
+
 function reset() {
-    outputField.value = "0"; 
+    outputField.value = "0";
 }
 
 function eraselast() {
     if (outputField.value.slice(-1) == ")")
-        broket++;
+        backets++;
     else if (outputField.value.slice(-1) == "(")
-        broket--;
-    evalResult = outputField.value = outputField.value.slice(0, outputField.value.length - 1);
+        backets--;
+    outputField.value = outputField.value.slice(0, outputField.value.length - 1);
+    toEval = outputField.value;
     if (outputField.value.length == 0) {
         outputField.value = "0";
     }
-}
-
-function createStrToEval(str) {
-
 }
 
 function addValue(val) {
     if (parseInt(val, 10)) { // digit
         if(outputField.value.slice(-1) == "0" && outputField.value.length == 1) {
             outputField.value = val;
+            toEval = outputField.value;
         } else if (!")!".includes(outputField.value.slice(-1))) {
             outputField.value += val;
+            toEval = outputField.value;
         }
     }
     else { //! ( ) - ^ + sqrt . /
@@ -41,46 +49,107 @@ function addValue(val) {
             case '*': 
             case '-': 
             case '+': 
-                if (!"(√.^+-*/".includes(outputField.value.slice(-1))) {
-                    outputField.value += val;
+                if (!"(√.^".includes(outputField.value.slice(-1))) {
+                    if ("+-*/".includes(outputField.value.slice(-1))) {
+                        outputField.value = outputField.value.slice(0, -1) + val;
+                        toEval = outputField.value;
+                    } else {
+                        outputField.value += val;
+                        toEval = outputField.value;
+                    }
                 }
                 break;
             case '√': 
-                if (!"0123456789!^)".includes(outputField.value.slice(-1))) {
+                if (!"0123456789!^.)+-*/".includes(outputField.value.slice(-1))) {
                     outputField.value += val;
                 } else if (outputField.value.length == 1 && outputField.value.slice(-1) == "0") {
                     outputField.value = val;
                 }
                 break;
             case '(': 
-                if (!"0123456789.!)".includes(outputField.value.slice(-1))) {
+                if (!"0123456789.!()".includes(outputField.value.slice(-1))) {
                     outputField.value += val;
+                    toEval += val;
                 }
                 break;
             case ')': 
-                if (!".+-*/√^(".includes(outputField.value.slice(-1))) {
+                if (!"!.+-*/√^(".includes(outputField.value.slice(-1))) {
                     outputField.value += val;
+                    toEval += val;
                 }
                 break; 
             case '!': 
-                if (!".+-*/√(^".includes(outputField.value.slice(-1))) {
+                if (!".+-*/√(^".includes(outputField.value.slice(-1))) { // 5+3! => 5+factorial(3) r(4+5-(3-1)!)!
                     outputField.value += val;
+                    
                 }
                 break;
             case '^': 
-                if (!".+-*/√".includes(outputField.value.slice(-1))) {
+                if (!".+-*/√(".includes(outputField.value.slice(-1))) {
                     outputField.value += val;
                 }
                 break;
             case '.': 
-                if ("0123456789.".includes(outputField.value.slice(-1)) && !outputField.value.includes('.')) {
+                if ("0123456789.".includes(outputField.value.slice(-1)) && checkingForAPoint()) {
                     outputField.value += val;
+                    toEval += val;
                 }
                 break;
         }
     }
 }
 
-function calculate() {
+function createStrToEval(str) {
+    str = str.split("");
+    for (let i = str.length - 1; i != -1; i--) {   
+        switch(str[i]) {
+            case "!":
+                str.splice(i, 1, ")");
+                if(isFinite(str[i - 1]))
+                    for (let j = i - 1; j != -2; j--)
+                        if(isNaN(parseInt(str[j]))) {
+                            str.splice(j+1, 0, "factorial(");
+                            break;
+                        }
+                if (str[i-1] == ")") {
+                    let numOfBrocket = 0;
+                    for (let j=i-1; j!=-2; j--){
+                        if (str[j] == ")")
+                            numOfBrocket++;
+                        else if (str[j] == "(")
+                            numOfBrocket--;
+                        if(numOfBrocket == 0){          
+                            str.splice(j+1,0,"factorial(");
+                            break;
+                        }
+                    }
+                }
+                break;
+            case "^":
+                str.splice(i, 1, "**");
+                break;
+            case "√":
+                str.splice(i,1,"Math.sqrt(");           
+                if(isFinite(str[i + 1]) || str[i + 1] == "Math.sqrt(")
+                    for (let j=i+1; j<str.length+1; j++) {
+                        if(!isFinite(str[j]) && str[j] != "Math.sqrt(") {
+                            str.splice(j, 0, ")");
+                            break;
+                        }
+                    }
+                else if(str[i + 1] == "(")
+                    str.splice(i + 1, 1);
+                    
+                break;
+            case "/":
+                if(str[i + 1] == 0)
+                    return "Деление на ноль";
+                break;
+        }
+    }
+    return str.join("");
+}
 
+function calculate() {
+    outputField.value = eval(createStrToEval(outputField.value));
 }
