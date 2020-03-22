@@ -9,6 +9,12 @@
             "request": "launch",
             "name": "lab5-task3-debug",
             "file": "${workspaceFolder}/lab5/task3/task3.html"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "lab5-task1-debug",
+            "file": "${workspaceFolder}/lab5/task1/TheDeadDontDie.html"
         }
     ]
 }
