@@ -18,3 +18,18 @@ form {
 #productsList li {
     margin-left: 20px;
 }
+#totalField {
+    outline: none;
+}
+#totalField:hover {
+    cursor: default;
+    outline: none;
+}
+#totalField:focus {
+    outline: none;
+    cursor: default;
+}
+#totalField:active {
+    outline: none;
+    cursor: default;
+}

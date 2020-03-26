@@ -15,6 +15,12 @@
             "request": "launch",
             "name": "lab5-task1-debug",
             "file": "${workspaceFolder}/lab5/task1/TheDeadDontDie.html"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "lab5-task2-debug",
+            "file": "${workspaceFolder}/lab5/task2/task2.html"
         }
     ]
 }
