@@ -59,7 +59,7 @@ function addValue(val) {
                 }
                 break;
             case '√': 
-                if (!"0123456789!^.)+-*/".includes(outputField.value.slice(-1))) {
+                if (!"0123456789!^.)".includes(outputField.value.slice(-1))) {
                     outputField.value += val;
                 } else if (outputField.value.length == 1 && outputField.value.slice(-1) == "0") {
                     outputField.value = val;
