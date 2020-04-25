@@ -1,3 +1,5 @@
+'use strict';
+
 let outputField = document.querySelector("#outputfield");
 
 function factorial(n) {
@@ -5,10 +7,11 @@ function factorial(n) {
 }
 
 function checkingForAPoint() {
-    i = outputField.value.length;
+    var i = outputField.value.length;
     while (!"+-*/√^".includes(outputField.value[i - 1]) && i != 0) {
-        if (outputField.value[i - 1] == '.')
+        if (outputField.value[i - 1] == '.') {
             return false;
+        }
         i--;
     }
     return true;
@@ -26,16 +29,18 @@ function reset() {
     outputField.value = "0";
 }
 
-function eraselast() {
-    if (outputField.value.slice(-1) == ")")
+/*function eraselast() {
+    if (outputField.value.slice(-1) == ")") {
         backets++;
-    else if (outputField.value.slice(-1) == "(")
+    }
+    else if (outputField.value.slice(-1) == "(") {
         backets--;
+    }
     outputField.value = outputField.value.slice(0, outputField.value.length - 1);
     if (outputField.value.length == 0) {
         outputField.value = "0";
     }
-}
+}*/
 
 function addValue(val) {
     if (parseInt(val, 10) || val == 0) { // digit
@@ -96,7 +101,7 @@ function addValue(val) {
 
 function createStrToEval(str) {
     str = str.split("");
-    for (let i = str.length - 1; i != -1; i--) {   
+    for (var i = str.length - 1; i != -1; i--) {   
         switch(str[i]) {
             case "!":
                 str.splice(i, 1, ")");
@@ -128,15 +133,17 @@ function createStrToEval(str) {
                 break;
             case "√":
                 str.splice(i, 1, "Math.sqrt(");
-                if(isFinite(str[i + 1]) || str[i + 1] == "Math.sqrt(")
+                if(isFinite(str[i + 1]) || str[i + 1] == "Math.sqrt(") {
                     for (let j = i + 1; j < str.length + 1; j++) {
                         if(!isFinite(str[j]) && str[j] != "Math.sqrt(") {
                             str.splice(j, 0, ")");
                             break;
                         }
-                    } else if(str[i + 1] == "(") {
-                        str.splice(i + 1, 1);         
-                    }  
+                    } 
+                }
+                else if(str[i + 1] == "(") {
+                    str.splice(i + 1, 1);         
+                }  
                 break;
         }
     }
